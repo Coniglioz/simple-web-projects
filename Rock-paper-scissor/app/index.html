@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="rockPaperScissorApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock-Paper-Scissors</title>
+        <script src="lib/angular.min.js"></script>
+
+        <!-- Application files -->
+        <link rel="stylesheet" href="css/app.css">
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/services.js"></script>
+    </head>
+    <body>
+
+        <div ng-controller="MainController">
+            
+            <!--Shapes menu-->
+            <ul id="shapes-container">
+                <li ng-repeat="shape in shapes">
+                    <img ng-src="{{shape.url}}"
+                         ng-click="play({value: shape.name})"
+                         alt="{{shape.name}}"
+                         class="shape-image"
+                         height="150" 
+                         width="100" />
+                </li>
+            </ul>
+
+            <!--Game results-->
+            <div id="games-results">
+                <p ng-repeat="gameResult in games">{{ formatGameResult(gameResult)}}</p>
+            </div>
+
+        </div>
+    </body>
+</html>
